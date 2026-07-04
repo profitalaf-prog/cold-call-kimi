@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cold Call Finder</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>">
+    <link rel="stylesheet" href="style.css">
+<base target="_blank">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-box">
+            <div class="login-logo">📞</div>
+            <h1>Cold Call Finder</h1>
+            <p>Enter password to continue</p>
+            <input type="password" id="passwordInput" placeholder="Password" autocomplete="off">
+            <button id="loginBtn">Enter</button>
+            <div id="loginError" class="login-error"></div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="appScreen" class="app-screen" style="display:none">
+        <header>
+            <div class="header-left">
+                <span class="logo">📞 Cold Call Finder</span>
+            </div>
+            <div class="header-right">
+                <button id="logoutBtn" class="ghost-btn">Logout</button>
+            </div>
+        </header>
+
+        <!-- Dashboard -->
+        <section class="dashboard">
+            <div class="dash-card">
+                <span class="dash-label">Total Leads</span>
+                <span class="dash-value" id="dashTotal">0</span>
+            </div>
+            <div class="dash-card">
+                <span class="dash-label">To Call</span>
+                <span class="dash-value dash-blue" id="dashToCall">0</span>
+            </div>
+            <div class="dash-card">
+                <span class="dash-label">Called</span>
+                <span class="dash-value dash-yellow" id="dashCalled">0</span>
+            </div>
+            <div class="dash-card">
+                <span class="dash-label">Accepted</span>
+                <span class="dash-value dash-green" id="dashAccepted">0</span>
+            </div>
+            <div class="dash-card">
+                <span class="dash-label">Rejected</span>
+                <span class="dash-value dash-red" id="dashRejected">0</span>
+            </div>
+            <div class="dash-card">
+                <span class="dash-label">In Progress</span>
+                <span class="dash-value dash-purple" id="dashProgress">0</span>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-row">
+                <div class="search-field">
+                    <label>Business Niche</label>
+                    <input type="text" id="nicheInput" placeholder="e.g. Restaurant, Dentist, Plumber">
+                </div>
+                <div class="search-field">
+                    <label>Radius</label>
+                    <select id="radiusSelect">
+                        <option value="5000">5 km</option>
+                        <option value="10000" selected>10 km</option>
+                        <option value="25000">25 km</option>
+                        <option value="50000">50 km</option>
+                    </select>
+                </div>
+                <div class="search-field search-actions">
+                    <label>&nbsp;</label>
+                    <button id="searchBtn" class="primary-btn">
+                        <span id="searchBtnText">Search</span>
+                    </button>
+                </div>
+            </div>
+            <div class="location-row">
+                <span id="locationStatus">Detecting location...</span>
+                <button id="manualLocationBtn" class="text-btn">Use manual location</button>
+            </div>
+            <div id="manualLocationBox" class="manual-location" style="display:none">
+                <input type="text" id="manualLocationInput" placeholder="Enter city (e.g. Berlin, London, New York)">
+                <button id="setLocationBtn" class="primary-btn small">Set Location</button>
+            </div>
+        </section>
+
+        <!-- Toolbar -->
+        <section class="toolbar">
+            <input type="text" id="filterInput" placeholder="Search by name, phone, or address...">
+            <div class="toolbar-actions">
+                <button id="exportBtn" class="ghost-btn">Export CSV</button>
+                <button id="clearBtn" class="ghost-btn danger">Clear All</button>
+            </div>
+        </section>
+
+        <!-- Results Table -->
+        <section class="results-section">
+            <div id="resultsTableWrap" class="table-wrap">
+                <div class="empty-state" id="emptyState">
+                    <p>Enter a business niche and click Search to find leads near you.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
