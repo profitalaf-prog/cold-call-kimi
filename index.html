@@ -60,12 +60,41 @@
             </div>
         </section>
 
+        <!-- Search Provider Toggle -->
+        <section class="provider-section">
+            <div class="provider-label">Data Source:</div>
+            <div class="provider-toggle">
+                <button id="providerOsm" class="provider-btn active">
+                    <span class="provider-icon">🗺️</span>
+                    <span class="provider-name">OpenStreetMap</span>
+                    <span class="provider-badge">FREE</span>
+                </button>
+                <button id="providerGoogle" class="provider-btn">
+                    <span class="provider-icon">🔍</span>
+                    <span class="provider-name">Google Places</span>
+                    <span class="provider-badge">API Key</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- API Key Input (Google only) -->
+        <section class="apikey-section" id="apiKeyBox" style="display:none">
+            <div class="apikey-row">
+                <input type="text" id="apiKeyInput" placeholder="Paste your Google Places API key here...">
+                <button id="saveApiKeyBtn" class="ghost-btn">Save Key</button>
+            </div>
+            <p class="apikey-hint">
+                Get a free key at <a href="https://developers.google.com/maps/documentation/places/web-service/get-api-key" target="_blank" rel="noopener">Google Cloud Console</a>.
+                Key is stored locally in your browser only.
+            </p>
+        </section>
+
         <!-- Search Section -->
         <section class="search-section">
             <div class="search-row">
                 <div class="search-field">
                     <label>Business Niche</label>
-                    <input type="text" id="nicheInput" placeholder="e.g. Restaurant, Dentist, Plumber">
+                    <input type="text" id="nicheInput" placeholder="e.g. Restaurant, Dentist, Plumber, Hair Salon">
                 </div>
                 <div class="search-field">
                     <label>Radius</label>
