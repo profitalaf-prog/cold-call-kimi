@@ -23,6 +23,8 @@
     --red-dim: rgba(239, 68, 68, 0.12);
     --purple: #a855f7;
     --purple-dim: rgba(168, 85, 247, 0.12);
+    --osm: #7cb342;
+    --osm-dim: rgba(124, 179, 66, 0.15);
     --radius: 10px;
     --radius-sm: 6px;
     --shadow: 0 1px 3px rgba(0,0,0,0.4);
@@ -252,6 +254,134 @@ header {
 .dash-yellow { color: var(--yellow); }
 .dash-red { color: var(--red); }
 .dash-purple { color: var(--purple); }
+
+/* ============================================
+   Provider Toggle
+   ============================================ */
+.provider-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.provider-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+}
+
+.provider-toggle {
+    display: flex;
+    gap: 8px;
+}
+
+.provider-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.provider-btn:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+}
+
+.provider-btn.active {
+    border-color: var(--accent);
+    color: var(--text);
+    background: var(--accent-dim);
+}
+
+.provider-btn.active#providerOsm {
+    border-color: var(--osm);
+    background: var(--osm-dim);
+}
+
+.provider-icon {
+    font-size: 16px;
+}
+
+.provider-name {
+    font-weight: 600;
+}
+
+.provider-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    background: var(--border);
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.provider-btn.active .provider-badge {
+    background: var(--accent);
+    color: #fff;
+}
+
+.provider-btn.active#providerOsm .provider-badge {
+    background: var(--osm);
+    color: #fff;
+}
+
+/* ============================================
+   API Key Section
+   ============================================ */
+.apikey-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+}
+
+.apikey-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.apikey-row input {
+    flex: 1;
+    padding: 10px 14px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+}
+
+.apikey-row input:focus {
+    border-color: var(--accent);
+}
+
+.apikey-hint {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.apikey-hint a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.apikey-hint a:hover {
+    text-decoration: underline;
+}
 
 /* ============================================
    Search Section
@@ -624,6 +754,25 @@ tr.status-progress td:first-child { box-shadow: inset 3px 0 0 var(--purple); }
 
     .dash-value {
         font-size: 22px;
+    }
+
+    .provider-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .provider-toggle {
+        width: 100%;
+    }
+
+    .provider-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .apikey-row {
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .search-row {
